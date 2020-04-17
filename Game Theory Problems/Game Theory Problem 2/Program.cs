@@ -145,7 +145,7 @@ namespace Game_Theory_Problem_2
 
         static void CalculateBestSalePercents()
         {
-            const int TOTAL_WEEKS = 100_000;
+            const int TOTAL_WEEKS = 10_000;
 
             //Tupl<sc_sp, lc_sp, sc_tbp, lc_tbp, actual rain percent>
             Tuple<double, double, double, double, double> bestForSmallCenter = new Tuple<double, double, double, double, double>(0, 0, 0, 0, 0);
@@ -156,7 +156,7 @@ namespace Game_Theory_Problem_2
             {
                 for (double sc_sp = 0; sc_sp <= 1; sc_sp += .01)
                 {
-                    GetTotalBusinessPercentForSalePercents(sc_sp, sc_sp, TOTAL_WEEKS, out double sc_tbp, out double lc_tbp, out double actualRainPercent);
+                    GetTotalBusinessPercentForSalePercents(sc_sp, lc_sp, TOTAL_WEEKS, out double sc_tbp, out double lc_tbp, out double actualRainPercent);
                     if (bestForSmallCenter.Item3 < sc_tbp)
                     {
                         bestForSmallCenter = new Tuple<double, double, double, double, double>(sc_sp, lc_sp, sc_tbp, lc_tbp, actualRainPercent);
